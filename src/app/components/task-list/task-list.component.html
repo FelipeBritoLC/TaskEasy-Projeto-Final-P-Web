@@ -1,0 +1,18 @@
+<app-task-form [task]="selectedTask" (save)="onSave($event)"></app-task-form>
+
+<mat-list>
+  <mat-list-item *ngFor="let task of tasks">
+    <mat-checkbox [checked]="task.completed" (change)="toggleComplete(task)"></mat-checkbox>
+    <div class="task-content">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+    </div>
+    <button mat-icon-button color="accent" (click)="editTask(task)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteTask(task.id!)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
+

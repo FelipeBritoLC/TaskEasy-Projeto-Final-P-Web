@@ -1,0 +1,21 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+        Título é obrigatório.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="completed">Concluída</mat-checkbox>
+  
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+  </form>
+  
